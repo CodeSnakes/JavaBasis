@@ -9,19 +9,18 @@ public class Joseph {
 
     public static void main(String[] args) {
 
-<<<<<<< HEAD
+
         //创建 list管API
         CircleSingleLinkedList list = new CircleSingleLinkedList();
         list.addBoy(25);
         list.show();
         list.out(4, 2);
-=======
+
         //创建list管
-        CircleSingleLinkedList list = new CircleSingleLinkedList();
-        list.addBoy(5);
-        list.show();
-        list.out(1, 2);
->>>>>>> dd2594b2f4dfce0ed00517b7044620dc6105543e
+//        CircleSingleLinkedList list = new CircleSingleLinkedList();
+//        list.addBoy(5);
+//        list.show();
+//        list.out(1, 2);
 
     }
 
