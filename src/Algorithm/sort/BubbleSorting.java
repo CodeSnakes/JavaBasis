@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * @author yichangkong
  * @create 2020-04-14-17:02
- * Bubble Sorting 冒泡排序非优化版 因为一些排序数组 不需全部遍历完排序 便可以完成整个数组的顺序统一
+ * Bubble Sorting 冒泡排序非optimization版 因为一些排序数组 不需全部遍历完排序 便可以完成整个数组的顺序统一
  */
 public class BubbleSorting {
 
