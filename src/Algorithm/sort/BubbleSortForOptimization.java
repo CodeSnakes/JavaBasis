@@ -7,20 +7,25 @@ import java.util.Date;
  * @author yichangkong
  * @create 2020-04-14-18:15
  * 冒泡排序优化版
+ *
  */
 public class BubbleSortForOptimization {
     public static void main(String[] args) {
 
-        int[] arrys = new int[80000];
+        int[] arrys = new int[800000];
 
         for(int i = 0; i < arrys.length; i++) {
 
-            arrys[i]=(int) (Math.random()*80000);
+            arrys[i]=(int) (Math.random()*80000000);
 
         }
+        SelectSort selectSort = new SelectSort();
         Date date = new Date();
         System.out.println("排序前： Arrays.toString(arrys)"+"时间： "+date);
-        bubbleSort(arrys);
+
+        //InsertSort.insertSorts(arrys);
+        //selectSort.sort(arrys);
+        //bubbleSort(arrys);
         Date date1 = new Date();
         System.out.println("排序前： Arrays.toString(arrys)"+"时间： "+date1);
         System.out.println("共用时：    "+(date1.getTime()-date.getTime())/1000+"S");
@@ -32,8 +37,6 @@ public class BubbleSortForOptimization {
    * @Param [arrys] @Return void @Date 2020/4/14 @Time 18:21
    */
   public static void bubbleSort(int[] arrys) {
-
-
 
         boolean flag=false;//进行数据标识
 
@@ -47,8 +50,6 @@ public class BubbleSortForOptimization {
                     arrys[i + 1] = a;
                 }
             }
-//            System.out.println("第"+j+"次排序");
-//            System.out.println(Arrays.toString(arrys));
             if(!flag){//说明该次遍历数组并没进行交换
                 return;
             }else{
