@@ -28,11 +28,11 @@
    >
    >        1. 插入排序
    >           -  直接插入排序 
-   >              1. ![](https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173050.png)
+   >              1.  https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173050.png
    >           - 希尔排序
    >        2. 选择排序
    >           - 简单选择排序
-   >             1. ![](https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173012.png)
+   >             1. https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173012.png
    >           - 堆排序
    >        3. 交换排序
    >           - 冒泡排序  
