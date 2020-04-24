@@ -66,9 +66,7 @@ public class MergeSort {
         t += 1;
         r += 1;
       }
-
     }
-
     //(二)
     //把有剩余数据的一边的数据依次全部填充到 temp
     while( l <= mid) { //左边的有序序列还有剩余的元素，就全部填充到 temp
