@@ -10,18 +10,17 @@ import java.util.List;
  */
 public class RadixSort {
 
-  static   List<List> lists = new ArrayList<>();
+
+    static List<List> lists = new ArrayList<>();
 
   public static void main(String[] args) {
 
-      int[] arr= {53, 3, 1,42,666 ,895,48,321, 14, 34,331,452};
-      for (int i = 0; i < 10; i++){ //生成十个模拟装值的桶 list 存 list
-          lists.add(i,new ArrayList());//int[] 不好定义数量 所以改换为list
-      }
-      radixSort(arr);
-      System.out.println(Arrays.toString(arr));
   }
-  static  public void radixSort(int[] arr){
+
+    static  public void radixSort(int[] arr){
+        for (int i = 0; i < 10; i++){ //生成十个模拟装值的桶 list 存 list
+            lists.add(i,new ArrayList());//int[] 不好定义数量 所以改换为list
+        }
       int index=0;//位数的指向
       boolean flag=true;//最外层的遍历是根据最大值的位数 所以我需要一个标注 来表示一次循环中是否有当前位数的值
       int temp=0;//用于放入桶的间接值

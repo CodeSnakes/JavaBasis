@@ -12,22 +12,25 @@ import java.util.Date;
 public class BubbleSortForOptimization {
     public static void main(String[] args) {
 
-        int[] arrys = new int[8];
+        int[] arrys = new int[8000000];
 
         for(int i = 0; i < arrys.length; i++) {
 
-            arrys[i]=(int) (Math.random()*800);
+            arrys[i]=(int) (Math.random()*80000000);
 
         }
         SelectSort selectSort = new SelectSort();
         Date date = new Date();
         System.out.println("排序前： Arrays.toString(arrys)"+"时间： "+date);
-    System.out.println(Arrays.toString(arrys));
+       // System.out.println(Arrays.toString(arrys));
 
-        QuickSort.quickSort(arrys,0,arrys.length-1);
+        //QuickSort.quickSort(arrys,0,arrys.length-1);
+
+        //RadixSort.radixSort(arrys);
+        RadixSortPro.radixSort(arrys);
 
         Date date1 = new Date();
-        System.out.println(Arrays.toString(arrys));
+        //System.out.println(Arrays.toString(arrys));
         System.out.println("排序前： Arrays.toString(arrys)"+"时间： "+date1);
         System.out.println("共用时：    "+(date1.getTime()-date.getTime())/1000+"S");
 
