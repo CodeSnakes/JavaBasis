@@ -3,12 +3,14 @@ package Algorithm.sort;
 import java.util.Arrays;
 
 /**
+ * 排序算法中是稳定的且时间复杂度最小
  * @author yichangkong
  * @create 2020-04-24-12:07
  * 归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，
  * 该算法采用经典的分治（divide-and-conquer）
  * 策略（分治法将问题分(divide)成一些小的问题然后递归求解，
  * 而治(conquer)的阶段则将分的阶段得到的各答案"修 补"在一起，即分而治之)。
+ *
  */
 public class MergeSort {
 

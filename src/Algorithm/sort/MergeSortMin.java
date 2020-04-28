@@ -1,7 +1,6 @@
 package Algorithm.sort;
 import java.util.Arrays;
 /**
- *
  * @author yichangkong
  * @create 2020-04-24-19:20
  */
