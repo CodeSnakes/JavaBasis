@@ -1,6 +1,7 @@
 package Algorithm.search;
 
 /**
+ * Fibonacci
  * ctrl shift f 格式化
  * 插值查找算法
  * 将折半查找中的求 mid 索引的公式 , low 表示左边索引 left, high 表示右边索引 right. key 就是前面我们讲的 findVal
