@@ -1,6 +1,7 @@
 package Algorithm.search;
 
 /**
+ *
  * @author yichangkong
  * @create 2020-04-26-15:21
  */
