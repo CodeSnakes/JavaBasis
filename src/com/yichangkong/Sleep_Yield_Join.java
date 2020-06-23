@@ -5,12 +5,15 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yichangkong
  * @create 2020-06-16-23:54
+ *
+ * new Thread(()->{e.execute(inst,processVars);}).start();
+ * Lambda、匿名委托线程
  */
 public class Sleep_Yield_Join {
   public static void main(String[] args) {
-    // testSleep();
-    // testYield();
-    testJoin();
+     //testSleep();
+     testYield();
+    //testJoin();
   }
   /*
   Sleep,意思就算睡眠，当前线程暂停一段时间让给别的线程去运行。sleep是怎么
@@ -21,7 +24,6 @@ public class Sleep_Yield_Join {
     new Thread(
             () -> {
               for (int i = 0; i < 100; i++) {
-
                 System.out.println("A " + i);
                 try {
                   Thread.sleep(500);
@@ -34,8 +36,8 @@ public class Sleep_Yield_Join {
         .start();
   }
   /*Yield,就是当前线程正在执行的时候停止下来进入等待队列，
-  回到等待队列里在系统的调度算 法里头呢还是依然有可能把你刚回去的这个线程拿回来继续执行，
-  当然，更大的可能性是把原来等待的那些拿 出一个来执行，所以yield的意思是我让出一下CPU，
+  回到等待队列里在系统的调度算法里头呢还是依然有可能把你刚回去的这个线程拿回来继续执行，
+  当然，更大的可能性是把原来等待的那些拿出一个来执行，所以yield的意思是我让出一下CPU，
   后面你们能不能抢到那我不管*/
 
   static void testYield() {
