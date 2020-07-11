@@ -2,8 +2,7 @@ package DataStructures.tree;
 
 /**
  * @author yichangkong
- * @create 2020-05-18-15:45
- * for+递归=回溯
+ * @create 2020-05-18-15:45 for+ 递归 = 回溯
  */
 public class BinaryTreeDome {
 
@@ -21,11 +20,16 @@ public class BinaryTreeDome {
     // 说明，我们先手动创建该二叉树，后面我们学习递归的方式创建二叉树
     root.setLeft(node2);
     root.setRight(node3);
-    node3.setRight(node4);
-    node3.setLeft(node5);
+    node3.setLeft(node4);
+    node3.setRight(node5);
     binaryTree.setRoot(root);
 
+    System.out.println("——PreOrder——");
     binaryTree.preorderTraversal();
+    System.out.println("——InOrder——");
+    binaryTree.inOrderTraversal();
+    System.out.println("——Postoder——");
+    binaryTree.postOrderTraversal();
   }
 
   static class BinaryTree {
@@ -110,6 +114,11 @@ public class BinaryTreeDome {
     @Override
     public String toString() {
       return "HordNote{" + "no=" + no + ", name='" + name + '\'' + '}';
+    }
+
+    /** 如果删除的节点是叶子节点，则删除该节点 如果删除的节点是非叶子节点，则删除该子树. 测试，删除掉 5号叶子节点 和 3号子树. */
+    void delete() {
+
     }
 
     /** @Description preorderTraversal： 先输出父节点，再遍历左子树和右子树 @Param [] @Return void */

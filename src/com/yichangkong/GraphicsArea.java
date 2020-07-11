@@ -76,7 +76,7 @@ public class GraphicsArea {
      *
      * 阉割版设计模式（类似于工厂方法、抽象工厂方法）
      */
-    double calArea() { // 重写继承计算面积方法
+    double calArea() { // 重写继承2
         return w * h;
       }
     }

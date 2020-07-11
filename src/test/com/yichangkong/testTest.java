@@ -1,6 +1,7 @@
 package test.com.yichangkong; 
 
 import com.yichangkong.dewenwen;
+import com.yichangkong.test;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
@@ -23,14 +24,14 @@ public void after() throws Exception {
 public void testFunc() throws Exception {
     // TODO: Test goes here...
 
-    dewenwen.func();
 
     // test.func();
-    //GraphicsArea.func();//static方法
-//    GraphicsArea graphicsArea = new GraphicsArea();
-//    graphicsArea.func();
+    // GraphicsArea.func();//static方法
+    //    GraphicsArea graphicsArea = new GraphicsArea();
+    //    graphicsArea.func();
 
-//    ScoreCalculation.func();
+    //    ScoreCalculation.func();
 
+    test.func();
 }
 } 
