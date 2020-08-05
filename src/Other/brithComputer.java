@@ -1,7 +1,4 @@
-package com.yichangkong;
-
-import javafx.scene.input.DataFormat;
-import sun.rmi.runtime.Log;
+package Other;
 
 import java.text.DateFormat;
 import java.text.ParseException;

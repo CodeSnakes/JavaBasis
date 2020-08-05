@@ -1,6 +1,4 @@
-package com.yichangkong;
-
-import java.util.concurrent.TimeUnit;
+package Other;
 
 /**
  * @author yichangkong

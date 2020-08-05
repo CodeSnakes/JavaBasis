@@ -1,6 +1,4 @@
-package com.yichangkong;
-
-import java.util.Scanner;
+package Other;
 
 /**
  * @author yichangkong

@@ -1,4 +1,4 @@
-package com.yichangkong;
+package Other;
 
 import java.util.Scanner;
 

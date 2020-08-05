@@ -1,4 +1,4 @@
-package com.yichangkong;
+package Other;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

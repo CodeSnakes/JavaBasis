@@ -1,4 +1,4 @@
-package com.yichangkong;
+package Other;
 
 /**
  * @author yichangkong

@@ -1,5 +1,16 @@
 # JavaBasis
-尚硅谷Java DataStructure And Algorithm Tutorial
+
+Java DataStructure And Algorithm Tutorial And My Demo
+
+## Content involves（内容涉及）
+
+-  DataStructure（数据结构）
+-  Algorithm（算法）
+-  Concurrent（高并发）
+-  Lambda （语法）
+-  Multithreading（多线程）
+-  test
+
 # DataStructures
 
 1. 数组
@@ -9,53 +20,56 @@
 
 # Algorithm
 
-#### 1.递归算法
+## 1.递归算法
 
 - 解决迷宫问题
 - 解决八皇后问题
 
-#### 2.排序算法
+## 2.排序算法
 
-1.  ##### 简介
+1. ##### 简介
 
      1.  (Sort Algorithm)，排序是将一组数据，依指定的顺序进行排列的过程。
 
- 2.  ##### 内部排序
+ 2. ##### 内部排序
+
 3. ##### 插入排序
-   
+
    -  直接插入排序 
-      1.  <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173050.png" style="zoom:50%;" />
+      1.  <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173050.png" style="zoom: 25%;" />
       2.  希尔排序
    -  选择排序
    -  简单选择排序
-     1. <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173012.png" style="zoom:50%;" />
+      1. <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173012.png" style="zoom: 25%;" />
    -  堆排序
-4.  ##### 交换排序
-   
+
+4. ##### 交换排序
+
    - 冒泡排序  
      1.  通过对待排序序列从前向后（从下标较小的元素开始）,依次比较相邻元素的值，若发现逆序则交换，使值较大的元素逐渐从前移向后部。
-     2. 因为排序的过程中，各元素不断接近自己的位置，如果一趟比较下来没有进行过交换，就说明序列有序，因此要在排序过程中设置一个标志flag判断元素是否进行过交换。而减少不必要的比较。(这里说的优化，可以在冒泡排序写好后，在进行)
-     3.  <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422172942.png" style="zoom:50%;" />
+     2.  因为排序的过程中，各元素不断接近自己的位置，如果一趟比较下来没有进行过交换，就说明序列有序，因此要在排序过程中设置一个标志flag判断元素是否进行过交换。而减少不必要的比较。(这里说的优化，可以在冒泡排序写好后，在进行)
+     3.  <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422172942.png" style="zoom: 25%;" />
    - 快速排序
+
 5. ##### 归并排序
 
-<img src="img/merger1.png" style="zoom:50%;" >
+<img src="img/merger1.png" style="zoom: 25%;" >
 
 5. ##### 基数排序
 
-3. ##### 外部排序
+6. ##### 外部排序
 
-1.    ##### 使用内存和外存结合 
+7. ##### 使用内存和外存结合 
 
 8. ##### （数据量过大，无法全部加载到内存中，需要借助外部存储进行排序）
 
 9. ##### 总结 
 
-   -  上述算法时间空间复杂度
+   - 上述算法时间空间复杂度
 
-   - ![](https://gitee.com/yichangkong/FigureBed/raw/master/img/20200426142419.png)
+   - <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200426142419.png" style="zoom:25%;" />
 
-   -  相关术语解释： 
+   - 相关术语解释： 
 
    - 稳定：
 
@@ -81,32 +95,21 @@
 
 
 
-#### 3.查找算法
+## 3.查找算法
 
-- #####  顺序(线性)查找
+- 顺序(线性)查找
 
-- ##### 二分查找/折半查找 
+- 二分查找/折半查找 
 
-- #####  插值查找 
+- 插值查找 
 
-- #####  斐波那契查找
+- 斐波那契查找
 
+### Complexity of the algorithm（算法复杂度）
 
-
-# Complexity of the algorithm
-
-## Time Complexity
+#### Time Complexity
 
 - 事后统计的方法这种方法可行, 但是有两个问题：一是要想对设计的算法的运行性能进行评测，需要实际运行该程序；二是所得时间的统计量依赖于计算机的硬件、软件等环境因素, 这种方式，要在同一台计算机的相同状态下运行，才能比较那个算法速度更快。
 - 事前估算的方法通过分析某个算法的时间复杂度来判断哪个算法更优.
 
-## Place Complexity
-
-  
-
-
-
-
-
-
-
+#### Place Complexity
