@@ -1,13 +1,13 @@
-package Concurrent.CyclicBarrier;
+package Concurrent.Cyclicbarrier;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.Executor;
 import java.util.logging.Logger;
 
 /**
  * @author yichangkong
  * @create 2020-08-06-23:23
+ * 屏障机制
  */
 public class MyCyclicBarrier {
 
@@ -15,8 +15,7 @@ public class MyCyclicBarrier {
   public static void main(String[] args) {
 
       CyclicBarrier cyclicBarrier = new CyclicBarrier(3, () -> {
-        // ...
-        LOG.info("All previous tasks are completed");
+        LOG.info("All previous tasks are completed");//之前的所有任务均已完成
       });
 
       Thread t1 = new Thread(new Task(cyclicBarrier), "T1");
@@ -31,7 +30,10 @@ public class MyCyclicBarrier {
 
   }
 }
-
+    /**
+     * We need to create a *Runnable* task instance to initiate the barrier condition:
+     * 启动屏障时我们需要创建一个XXX任务实例
+     **/
 class Task implements Runnable {
   private CyclicBarrier barrier;
 
@@ -53,6 +55,4 @@ class Task implements Runnable {
       e.printStackTrace();
     }
   }
-
-
 }

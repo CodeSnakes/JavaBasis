@@ -1,4 +1,4 @@
-package Concurrent.Future;
+package Concurrent.future;
 
 import java.util.concurrent.*;
 
@@ -11,13 +11,12 @@ public class MyFuture {
   static String str;
 
   public static void main(String[] args) {
-    //
-    invoke();
+
   }
 
   // We can use below code snippet（片段） to create a future instance:
   // 下面的代码块
-  public static void invoke() {
+  public static void invokes() {
     ExecutorService executorService = Executors.newFixedThreadPool(10);
     Future<String> future =
         executorService.submit(

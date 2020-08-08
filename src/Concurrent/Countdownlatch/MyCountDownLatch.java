@@ -1,4 +1,4 @@
-package Concurrent.CountDownLatch;
+package Concurrent.Countdownlatch;
 
 /**
  * @author yichangkong
