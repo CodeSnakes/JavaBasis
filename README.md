@@ -1,15 +1,16 @@
-# JavaBasis
+# JavaBasis OverView
 
 Java DataStructure And Algorithm Tutorial And My Demo
 
-## Content involves（内容涉及）
+# Content involves
 
 -  DataStructure（数据结构）
 -  Algorithm（算法）
 -  Concurrent（高并发）
 -  Lambda （语法）
 -  Multithreading（多线程）
--  test
+-  DesignPatterns(设计模式)
+-  Mytest
 
 # DataStructures
 
@@ -36,11 +37,9 @@ Java DataStructure And Algorithm Tutorial And My Demo
 3. ##### 插入排序
 
    -  直接插入排序 
-      1.  <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173050.png" style="zoom: 25%;" />
       2.  希尔排序
    -  选择排序
    -  简单选择排序
-      1. <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422173012.png" style="zoom: 25%;" />
    -  堆排序
 
 4. ##### 交换排序
@@ -48,12 +47,9 @@ Java DataStructure And Algorithm Tutorial And My Demo
    - 冒泡排序  
      1.  通过对待排序序列从前向后（从下标较小的元素开始）,依次比较相邻元素的值，若发现逆序则交换，使值较大的元素逐渐从前移向后部。
      2.  因为排序的过程中，各元素不断接近自己的位置，如果一趟比较下来没有进行过交换，就说明序列有序，因此要在排序过程中设置一个标志flag判断元素是否进行过交换。而减少不必要的比较。(这里说的优化，可以在冒泡排序写好后，在进行)
-     3.  <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200422172942.png" style="zoom: 25%;" />
    - 快速排序
-
+   
 5. ##### 归并排序
-
-<img src="img/merger1.png" style="zoom: 25%;" >
 
 5. ##### 基数排序
 
@@ -67,14 +63,12 @@ Java DataStructure And Algorithm Tutorial And My Demo
 
    - 上述算法时间空间复杂度
 
-   - <img src="https://gitee.com/yichangkong/FigureBed/raw/master/img/20200426142419.png" style="zoom:25%;" />
-
    - 相关术语解释： 
 
    - 稳定：
 
      > 如果 a 原本在 b 前面，而 a=b，排序之后 a 仍然在 b 的前面；
-     >
+  >
      > 2) 不稳定：如果 a 原本在 b 的前面，而 a=b，排序之后 a 可能会出现在 b 的后面；
      >
      > 3) 内排序：所有排序操作都在内存中完成；
@@ -113,3 +107,9 @@ Java DataStructure And Algorithm Tutorial And My Demo
 - 事前估算的方法通过分析某个算法的时间复杂度来判断哪个算法更优.
 
 #### Place Complexity
+
+# DesignPatterns
+
+# Concurrents
+
+# Multithread
