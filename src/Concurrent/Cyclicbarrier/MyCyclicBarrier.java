@@ -18,9 +18,9 @@ public class MyCyclicBarrier {
         LOG.info("All previous tasks are completed");//之前的所有任务均已完成
       });
 
-      Thread t1 = new Thread(new Task(cyclicBarrier), "T1");
-      Thread t2 = new Thread(new Task(cyclicBarrier), "T2");
-      Thread t3 = new Thread(new Task(cyclicBarrier), "T3");
+      Thread t1 = new Thread(new Tasks(cyclicBarrier), "T1");
+      Thread t2 = new Thread(new Tasks(cyclicBarrier), "T2");
+      Thread t3 = new Thread(new Tasks(cyclicBarrier), "T3");
 
       if (!cyclicBarrier.isBroken()) {
         t1.start();
@@ -34,12 +34,12 @@ public class MyCyclicBarrier {
      * We need to create a *Runnable* task instance to initiate the barrier condition:
      * 启动屏障时我们需要创建一个XXX任务实例
      **/
-class Task implements Runnable {
+class Tasks implements Runnable {
   private CyclicBarrier barrier;
 
   Logger LOG = Logger.getLogger("LOG1");
 
-  public Task(CyclicBarrier barrier) {
+  public Tasks(CyclicBarrier barrier) {
     this.barrier = barrier;
   }
 

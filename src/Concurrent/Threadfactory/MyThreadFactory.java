@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class MyThreadFactory {
   public static void main(String[] args) {
     //
-      BaeldungThreadFactory factory = new BaeldungThreadFactory(
+      BaeldungThreadFactorys factory = new BaeldungThreadFactorys(
               "BaeldungThreadFactory");
       for (int i = 0; i < 10; i++) {
           Thread t = factory.newThread(new Task() {
@@ -26,14 +26,14 @@ public class MyThreadFactory {
   }
 }
 
-class BaeldungThreadFactory implements ThreadFactory {
+class BaeldungThreadFactorys implements ThreadFactory {
 
   Logger LOG = Logger.getLogger("BaeldungThreadFactory");
 
   private int threadId;
   private String name;
 
-  public BaeldungThreadFactory(String name) {
+  public BaeldungThreadFactorys(String name) {
     threadId = 1;
     this.name = name;
   }

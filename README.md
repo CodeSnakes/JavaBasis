@@ -68,7 +68,7 @@ Java DataStructure And Algorithm Tutorial And My Demo
    - 稳定：
 
      > 如果 a 原本在 b 前面，而 a=b，排序之后 a 仍然在 b 的前面；
-  >
+     >
      > 2) 不稳定：如果 a 原本在 b 的前面，而 a=b，排序之后 a 可能会出现在 b 的后面；
      >
      > 3) 内排序：所有排序操作都在内存中完成；

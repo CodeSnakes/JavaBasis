@@ -22,7 +22,8 @@ public class MySemaphore {
 
         if (semaphore.tryAcquire()) {
             try {
-                // ...
+                // perform some critical operations
+                // 运行一些关键程序
             }
             finally {
                 semaphore.release();
