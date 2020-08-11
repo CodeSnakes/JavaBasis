@@ -95,7 +95,8 @@ public class Application {
 
     // -------------7-----------------
     Collection<Integer> syncCollection =
-        Collections.synchronizedCollection(new ArrayList<>()); // 什么魔幻操作 同步集合？？？
+        Collections.synchronizedCollection(new ArrayList<>()); // 同步集合？？？
+
     Thread thread11 = new Thread(() -> syncCollection.addAll(Arrays.asList(1, 2, 3, 4, 5, 6)));
     Thread thread12 = new Thread(() -> syncCollection.addAll(Arrays.asList(1, 2, 3, 4, 5, 6)));
 
