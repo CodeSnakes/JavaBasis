@@ -4,6 +4,8 @@ Last modified: April 17, 2020
 
 by [Alejandro Ugarte](https://www.baeldung.com/author/alejandro-ugarte/) 
 
+Translater：ChangKongYi
+
 ## **1. Overview概述**
 
 Java supports multithreading out of the box. This means that by running bytecode concurrently in separate worker threads, the [JVM](https://www.baeldung.com/jvm-vs-jre-vs-jdk) is capable of improving application performance.
@@ -230,7 +232,7 @@ thread2.start();
 
 Let's keep in mind that synchronized collections use intrinsic locking in each method (we'll look at intrinsic locking  later).
 
-**让我们厘清一个概念，就是同步集合在每种方法中都有使用内在锁定（我们将在后面介绍内在锁定）**
+**让我们厘清一个概念，就是同步集合在每种方法中都有使用内部锁定（我们将在后面介绍内部锁定）**
 
 **This means that the methods can be accessed by only one thread at a time, while other threads will be blocked until the method is unlocked by the first thread.**
 
@@ -285,7 +287,7 @@ It's also possible to achieve thread-safety using the set of [atomic classes](ht
 
 To understand the problem this solves, let's look at the following *Counter* class:
 
-为了更好的了解和解决这个问题，让我们关注下面的 Counter类
+**为了更好的了解和解决这个问题，让我们关注下面的 Counter类**
 
 ```java
 public class Counter {
@@ -333,15 +335,23 @@ public class AtomicCounter {
 
  **它是线程安全的，因为它进行++的时候比以往多了一些其他的操作，使得自增是原子性的操作**
 
-## **8. Synchronized Methods**
+## **8. Synchronized Methods（同步方法）**
 
 While the earlier approaches are very good for collections and primitives, we will at times need greater control than that.
 
+**尽管之前的方法对于集合和原函数非常有用，但有时我们需要的控制权要远强于此。**
+
 So, another common approach that we can use for achieving thread-safety is implementing synchronized methods.
+
+**因此，可用于实现线程安全的另一种常见方法是实现同步方法。**
 
 Simply put**, only one thread can access a synchronized method at a time while blocking access to this method from other threads**. Other threads will remain blocked until the first thread finishes or the method throws an exception.
 
+**简而言之，在一时间内只有一个线程允许访问同步方法那么其他的想要访问方法的线程多会被阻塞，其他的线程将会一直阻塞直到出现第一个线程执行完成或者报错**
+
 We can create a thread-safe version of *incrementCounter()* in another way by making it a synchronized method:
+
+**使用同步方法作为另一种方式去实现一个线程安全版本的 IncrementCount（）**
 
 ```java
 public synchronized void incrementCounter() {
@@ -349,23 +359,43 @@ public synchronized void incrementCounter() {
 }
 ```
 
-We've created a synchronized method by prefixing the method signature with the [*synchronized*](https://www.baeldung.com/java-synchronized) keyword.
+We've created a synchronized method by prefixing the method signature（签名） with the [*synchronized*](https://www.baeldung.com/java-synchronized) keyword.
+
+**我们通过在方法签名之前添加synchornized关键字来创建一个同步方法。**
 
 Since one thread at a time can access a synchronized method, one thread will execute the *incrementCounter()* method, and in turn, others will do the same. No overlapping execution will occur whatsoever.
 
+**由于一个同步方法一次只允许一个线程访问，因此一个线程将执行* incrementCounter（）*方法，而其他线程将执行相同的方法。 任何重叠的执行都不会发生。**
+
 **Synchronized methods rely on the use of “intrinsic locks” or “monitor locks”**. An intrinsic lock is an implicit internal entity associated with a particular class instance.
+
+**同步方法的实现依靠“内部锁”或“监视器锁”** ，内部锁是与特定类实例关联的隐式内部实体。
 
 In a multithreaded context, the term *monitor* is just a reference to the role that the lock performs on the associated object, as it enforces exclusive access to a set of specified methods or statements.
 
-**When a thread calls a synchronized method, it acquires the intrinsic lock.** After the thread finishes executing the method, it releases the lock, hence allowing other threads to acquire the lock and get access to the method.
+**在多线程上下文中，术语monitor只是对锁对关联对象执行的角色的引用，因为它强制对一组指定的方法或语句进行独占访问。**
+
+**When a thread calls a synchronized method, it acquires the intrinsic lock.** 
+
+**当一个线程调用了同步方法，它便获得了固有锁**
+
+After the thread finishes executing the method, it releases the lock, hence allowing other threads to acquire the lock and get access to the method.
+
+**当这个线程成功执行完这个方法，它便会释放这个锁，因此允许其他的线程获得这个锁去访问这个方法**
 
 We can implement synchronization in instance methods, static methods, and statements (synchronized statements).
 
-## **9. Synchronized Statements**
+**我们可以实现 实例方法同步、静态方法同步，和同步语句**
+
+## **9. Synchronized Statements（同步语句）**
 
 Sometimes, synchronizing an entire method might be overkill if we just need to make a segment of the method thread-safe.
 
+**有时，如果我们只需要使方法的一部分成为线程安全的，那么同步整个方法可能就显得过分了。**
+
 To exemplify this use case, let's refactor the *incrementCounter()* method:
+
+**为了说明这个用例，让我们重构incrementCounter（）方法：**
 
 ```java
 public void incrementCounter() {
@@ -376,17 +406,31 @@ public void incrementCounter() {
 }
 ```
 
-The example is trivial, but it shows how to create a synchronized statement. Assuming that the method now performs a few additional operations, which don't require synchronization, we only synchronized the relevant state-modifying section by wrapping it within a *synchronized* block.
+The example is trivial（不重要）, but it shows how to create a synchronized statement. 
 
-Unlike synchronized methods, synchronized statements must specify the object that provides the intrinsic lock, usually the [*this*](https://www.baeldung.com/java-this) reference.
+**这个例子很简单，但是它向我们展示了如何创建一个同步语句**
+
+Assuming（假设） that the method now performs a few additional operations, which don't require synchronization, we only synchronized the relevant state-modifying section by wrapping it within a *synchronized* block.
+
+**假设该方法现在执行一些不需要同步的附加操作，我们仅通过将相关的状态修改部分包装在* synchronized *块中来进行同步。**
+
+Unlike synchronized methods, synchronized statements must specify the object that provides the intrinsic lock, usually the [*this*](https://www.baeldung.com/java-this) reference. 
+
+**与同步方法不同，同步语句必须指定一个提供内部锁的对象，通常是引用 this 。**
 
 **Synchronization is expensive, so with this option, we are able to only synchronize the relevant parts of a method**.
 
-### 9.1. Other Objects as a Lock
+**同步非常耗性能，因此使用此选项，我们最好只同步方法的相关部分**。
+
+### 9.1. Other Objects as a Lock（其他对象锁）
 
 We can slightly improve the thread-safe implementation of the *Counter* class by exploiting another object as a monitor lock, instead of *this.*
 
+**我们可以通过将另一个对象用作监视器锁而不是 this  ，来稍微改善  Counter  类的线程安全实现。**（那么这个对象和this有和不同呢）
+
 Not only does this provide coordinated access to a shared resource in a multithreaded environment, **but also it uses an external entity to enforce exclusive access to the resource**:
+
+**这不仅可以在多线程环境中提供对共享资源的协调访问，而且还使用外部实体来强制对资源进行独占访问**：
 
 ```java
 public class ObjectLockCounter {
@@ -406,13 +450,21 @@ public class ObjectLockCounter {
 
 We use a plain [*Object*](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html) instance to enforce mutual exclusion. This implementation is slightly better, as it promotes security at the lock level.
 
+**我们使用一个普通的Object实例来强制相互排斥。 此实现稍好一些，因为它可以提高锁定级别的安全性。**
+
 When using *this* for intrinsic locking, **an attacker could cause a deadlock by acquiring the intrinsic lock and triggering a denial of service (DoS) condition.**
+
+**当使用 this 进行内部锁定时， 攻击者可能会通过获取内部锁定并触发拒绝服务（DoS）条件来导致死锁。**
 
 On the contrary, when using other objects, **that private entity is not accessible from the outside.** This makes it harder for an attacker to acquire the lock and cause a deadlock.
 
-### 9.2. Caveats
+**相反，在使用其他对象时，无法从外部访问该私有实体。 这使攻击者更难获得锁并造成死锁。**
+
+### 9.2. Caveats（注意事项）
 
 Even though we can use any Java object as an intrinsic lock, we should avoid using *Strings* for locking purposes:
+
+**即使我们可以将任何Java对象用作内部锁定，也应避免出于锁定目的而使用* Strings *：**
 
 ```java
 public class Class1 {
@@ -428,17 +480,39 @@ public class Class2 {
 }
 ```
 
-At first glance, it seems that these two classes are using two different objects as their lock. However, **because of [string interning](https://www.baeldung.com/string/intern), these two “Lock” values may actually refer to the same object on the [string pool](https://www.baeldung.com/java-string-pool)**. That is, the *Class1* and *Class2* are sharing the same lock!
+At first glance, it seems that these two classes are using two different objects as their lock. 
+
+**乍一看，他好像是这个两个类使用了两个不同的对象作为了他们的锁**
+
+However, **because of [string interning](https://www.baeldung.com/string/intern), these two “Lock” values may actually refer to the same object on the [string pool](https://www.baeldung.com/java-string-pool)**. That is, the *Class1* and *Class2* are sharing the same lock!
+
+**但是，由于字符串interning，这两个“ Lock”值实际上可能引用字符串池上的同一对象。 也就是说，* Class1 *和* Class2 *共享着一个相同的锁！**
 
 This, in turn, may cause some unexpected behaviors in concurrent contexts.
 
-In addition to *Strings,* **we should avoid using any [cacheable or reusable](https://mail.openjdk.java.net/pipermail/valhalla-spec-observers/2020-February/001199.html) objects as intrinsic locks**. For example, the [*Integer.valueOf()* ](https://github.com/openjdk/jdk/blob/8c647801fce4d6efcb3780570192973d16e4e6dc/src/java.base/share/classes/java/lang/Integer.java#L1062)method caches small numbers. Therefore, calling *Integer.valueOf(1)* returns the same object even in different classes.
+**反过来，这可能会导致在并发上下文中发生某些意外行为。**
 
-## **10. Volatile Fields**
+In addition to *Strings,* **we should avoid using any [cacheable or reusable](https://mail.openjdk.java.net/pipermail/valhalla-spec-observers/2020-February/001199.html) objects as intrinsic locks**. 
 
-Synchronized methods and blocks are handy for addressing variable visibility problems among threads. Even so, the values of regular class fields might be cached by the CPU. Hence, consequent updates to a particular field, even if they're synchronized, might not be visible to other threads.
+**除了字符串之外，我们还应避免将任何可缓存或可重用的对象用作内部锁。**
+
+For example, the [*Integer.valueOf()* ](https://github.com/openjdk/jdk/blob/8c647801fce4d6efcb3780570192973d16e4e6dc/src/java.base/share/classes/java/lang/Integer.java#L1062)method caches small numbers. Therefore, calling *Integer.valueOf(1)* returns the same object even in different classes.
+
+**例如，Integer.valueOf（）方法缓存少量数字。 因此，即使在不同的类中，调用Integer.valueOf（1）也会返回相同的对象。**
+
+## **10. Volatile Fields（Volatile字段）**
+
+Synchronized methods and blocks are handy for addressing （很容易解决） variable visibility problems among（之间） threads. 
+
+**同步的方法和块非常适合解决线程之间的可变可见性问题。**
+
+Even so, the values of regular class fields might be cached by the CPU. Hence, consequent updates to a particular field, even if they're synchronized, might not be visible to other threads.
+
+**即使这样，常规类字段的值也可能会被CPU缓存。 因此，即使是同步的，对特定字段的后续更新也可能对其他线程不可见。（也就说会出现线程不安全 造成r/w数值错误）**
 
 To prevent this situation, we can use [*volatile*](https://www.baeldung.com/java-volatile) class fields:
+
+**为了避免这个情况，我们可以使用volatile类字段**
 
 ```java
 public class Counter {
@@ -450,11 +524,21 @@ public class Counter {
 }
 ```
 
-**With the \*volatile\* keyword, we instruct the JVM and the compiler to store the \*counter\* variable in the main memory.** That way, we make sure that every time the JVM reads the value of the *counter* variable, it will actually read it from the main memory, instead of from the CPU cache. Likewise, every time the JVM writes to the *counter* variable, the value will be written to the main memory.
+**With the \*volatile\* keyword, we instruct the JVM and the compiler to store the \*counter\* variable in the main memory.** 
+
+**使用 volatile 关键字，我们指示JVM和编译器将  counter 变量存储在主内存中。**
+
+That way, we make sure that every time the JVM reads the value of the *counter* variable, it will actually read it from the main memory, instead of from the CPU cache. Likewise, every time the JVM writes to the *counter* variable, the value will be written to the main memory.
+
+**这样，我们确保每次JVM读取 counter 变量的值时，实际上都会从主内存而不是从CPU缓存读取它。 同样，每次JVM写入  counter  变量时，该值将写入主内存。**
 
 Moreover, **the use of a \*volatile\* variable ensures that all variables that are visible to a given thread will be read from the main memory as well**.
 
+**此外，使用 volatile  变量可确保也将从主内存中 读取给定线程可见的所有变量**。
+
 Let's consider the following example:
+
+**让我们思考一下下面的示例：**
 
 ```java
 public class User {
@@ -469,19 +553,33 @@ public class User {
 
 In this case, each time the JVM writes the *age* *volatile* variable to the main memory, it will write the non-volatile *name* variable to the main memory as well. This assures that the latest values of both variables are stored in the main memory, so consequent updates to the variables will automatically be visible to other threads.
 
+**在这种情况下，每次JVM将 age   volatile  变量写入主内存时，它也会将非 volatile name 变量也写入主内存。 这确保了两个变量的最新值都存储在主存储器中，因此对变量的后续更新将自动对其他线程可见。**
+
 Similarly, if a thread reads the value of a *volatile* variable, all the variables visible to the thread will be read from the main memory too.
+
+**同样，如果线程读取* volatile *变量的值，则该线程可见的所有变量也将从主内存中读取。**
 
 **This extended guarantee that \*volatile\* variables provide is known as the [full volatile visibility guarantee](http://tutorials.jenkov.com/java-concurrency/volatile.html)**.
 
-## **11. Reentrant Locks**
+**Volatile变量提供的这种扩展保证称为完全易变可见性保证**
+
+## **11. Reentrant Locks（重入锁）**
 
 Java provides an improved set of *[Lock](https://www.baeldung.com/java-concurrent-locks)* implementations, whose behavior is slightly more sophisticated than the intrinsic locks discussed above.
 
+**Java提供了一组改进的Lock实现，其行为操作比上面讨论的内部锁稍微复杂一些。**
+
 **With intrinsic locks, the lock acquisition model is rather rigid:** one thread acquires the lock, then executes a method or code block, and finally releases the lock, so other threads can acquire it and access the method.
+
+**对于内部锁，该锁获取模型相当严格：一个线程获取锁，然后执行方法或代码块，最后释放锁，以便其他线程可以获取它并访问该方法。**
 
 There's no underlying mechanism that checks the queued threads and gives priority access to the longest waiting threads.
 
+**没有一个底层机制可以检查排队的线程并优先访问等待时间最长的线程。**
+
 *[ReentrantLock](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html)* instances allow us to do exactly that, **hence preventing queued threads from suffering some types of [resource starvation](https://en.wikipedia.org/wiki/Starvation_(computer_science)):**
+
+**而ReentrantLock实例使我们能够做到这一点，从而防止排队的线程遭受某种类型的资源匮乏**
 
 ```java
 public class ReentrantLockCounter {
@@ -503,17 +601,27 @@ public class ReentrantLockCounter {
 }
 ```
 
-The *ReentrantLock* constructor takes an optional *fairness* *boolean* parameter. When set to *true*, and multiple threads are trying to acquire a lock, **the JVM will give priority to the longest waiting thread and grant access to the lock**.
+The *ReentrantLock* constructor takes an optional *fairness*（公平） *boolean* parameter. When set to *true*, and multiple threads are trying to acquire a lock, **the JVM will give priority to the longest waiting thread and grant access to the lock**.
 
-## **12. Read/Write Locks**
+**ReentrantLock构造函数采用一个可选的fairness布尔参数。 如果设置为true，并且多个线程正试图获取锁，则JVM将优先考虑等待时间最长的线程，并授予对该锁的访问权限。**
+
+## **12. Read/Write Locks（读写锁）**
 
 Another powerful mechanism that we can use for achieving thread-safety is the use of *[ReadWriteLock](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html)* implementations.
 
+**我们可以用来实现线程安全的另一种强大机制是使用ReadWriteLock实现。**
+
 A *ReadWriteLock* lock actually uses a pair of associated locks, one for read-only operations and other for writing operations.
+
+**ReadWriteLock 锁实际上是使用一对关联的锁，一个用于只读操作，另一个用于写操作。**
 
 As a result, **it's possible to have many threads reading a resource, as long as there's no thread writing to it. Moreover, the thread writing to the resource will prevent other threads from reading it**.
 
+**结果就是，只要没有线程写入资源，就有可能有许多线程在读取资源。 此外，将线程写入资源将阻止其他线程读取资源。**
+
 We can use a *ReadWriteLock* lock as follows:
+
+**正如下面 我们可以使用读写锁**
 
 ```java
 public class ReentrantReadWriteLockCounter {
@@ -546,8 +654,10 @@ public class ReentrantReadWriteLockCounter {
 }
 ```
 
-## **13. Conclusion**
+## **13. Conclusion（总结）**
 
 In this article, **we learned what thread-safety is in Java, and took an in-depth look at different approaches for achieving it**.
+
+在本文中，**我们了解了Java中的线程安全性，并深入研究了实现它的不同方法**。
 
 As usual, all the code samples shown in this article are available [over on GitHub](https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-concurrency-basic).
