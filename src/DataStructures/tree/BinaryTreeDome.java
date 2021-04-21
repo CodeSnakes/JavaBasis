@@ -64,6 +64,8 @@ public class BinaryTreeDome {
         System.out.println("二叉树为空！");
       }
     }
+
+
   }
 
   /** @Description 子节点 @Param no 编号 name 姓名 left 左节点 right 右节点 @Date 2020/5/18 @Time 15:49 */
@@ -117,9 +119,7 @@ public class BinaryTreeDome {
     }
 
     /** 如果删除的节点是叶子节点，则删除该节点 如果删除的节点是非叶子节点，则删除该子树. 测试，删除掉 5号叶子节点 和 3号子树. */
-    void delete() {
-
-    }
+    void delete() {}
 
     /** @Description preorderTraversal： 先输出父节点，再遍历左子树和右子树 @Param [] @Return void */
     void preTrav() {
@@ -151,6 +151,35 @@ public class BinaryTreeDome {
         this.right.inordTrav();
       }
       System.out.println(this);
+    }
+
+    /**
+     * 前序查找
+     * @param no
+     * @return 如果找到就返回该node 如果没有找到返回null
+     */
+    public HeroNode proOrderSearch(int no) {
+
+      if (this.no == no) {//比较当前节点是不是
+        return this;
+      }
+      //1. 则判断当前的节点的左子节点是不是为空，如果不是空，则递归前序查找
+      //2. 如果左递归前序查找，找到节点，则返回
+      HeroNode node =null;
+      if(this.left!=null){
+        return node =this.left.proOrderSearch(no);
+      }
+      if (node!=null){//说明我们已经左子树找到
+        return node;
+      }
+      //1. 左递归前序查找，找到节点，则返回，否则继续判断
+      if(this.right!=null){
+         node= this.right.proOrderSearch(no);
+       }
+      return node;
+    }
+    public HeroNode infixOrderSearch(){
+
     }
   }
 }

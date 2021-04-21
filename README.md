@@ -6,7 +6,7 @@ Java DataStructure And Algorithm Tutorial And My Demo
 
 -  DataStructure（数据结构）
 -  Algorithm（算法）
--  Concurrent（高并发）
+-  Concurrent高并发（高并发）
 -  Lambda （语法）
 -  Multithreading（多线程）
 -  DesignPatterns(设计模式)
